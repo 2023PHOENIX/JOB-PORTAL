@@ -1,20 +1,53 @@
 
 const dotenv = require('dotenv');
 const exprees = require('express');
+const bodyParser = require('body-parser');
 const { connectToMongoDB } = require('./connection');
 
-const app = exprees();
+const authRoute = require("./routes/auth");
+const errorMiddleWare = require('./middleware/errorMiddleware');
+
 
 dotenv.config();
 
-app.get('/healthz', (req, res) => {
-     
-    res.send({
-        message: "working fine",
-        health: "ok",
-        time: Date.now()
-    })
-})
+const app = exprees();
+
+app.use(bodyParser.urlencoded({extended: false}));    // * help in parsing incoming body request
+app.use(bodyParser.json()); // * help in parsing json body request.
+
+
+
+
+
+
+
+app.use('/auth', authRoute);
+
+
+
+
+
+// & help in checking the health of the server.
+app.get('/healthz', (req, res,next) => {
+    
+    try {
+        
+        res.send({
+            message: "working fine",
+            health: "ok",
+            time: Date.now()
+        })
+    } catch (e) {
+        const error = new Error();
+        error.message = e.message;
+        error.status = 404;
+        
+        next(error);
+    }
+});
+
+app.use(errorMiddleWare); // & put it in the end of all the routes
+
 app.listen(process.env.PORT, () => {
 
     connectToMongoDB();
