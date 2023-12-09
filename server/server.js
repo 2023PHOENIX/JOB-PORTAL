@@ -2,6 +2,7 @@
 const dotenv = require('dotenv');
 const exprees = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const { connectToMongoDB } = require('./connection');
 
 const authRoute = require("./routes/auth");
@@ -12,15 +13,14 @@ dotenv.config();
 
 const app = exprees();
 
-app.use(bodyParser.urlencoded({extended: false}));    // * help in parsing incoming body request
+
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));    // * help in parsing incoming body request
 app.use(bodyParser.json()); // * help in parsing json body request.
 
 
 
-
-
-
-
+// ^ Routes 
 app.use('/auth', authRoute);
 
 
@@ -28,10 +28,8 @@ app.use('/auth', authRoute);
 
 
 // & help in checking the health of the server.
-app.get('/healthz', (req, res,next) => {
-    
+app.get('/healthz', (req, res, next) => {
     try {
-        
         res.send({
             message: "working fine",
             health: "ok",
@@ -41,7 +39,7 @@ app.get('/healthz', (req, res,next) => {
         const error = new Error();
         error.message = e.message;
         error.status = 404;
-        
+
         next(error);
     }
 });
@@ -51,5 +49,5 @@ app.use(errorMiddleWare); // & put it in the end of all the routes
 app.listen(process.env.PORT, () => {
 
     connectToMongoDB();
-    console.log("working on port ",process.env.PORT);
+    console.log("working on port ", process.env.PORT);
 })
