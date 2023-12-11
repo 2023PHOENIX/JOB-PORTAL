@@ -34,7 +34,7 @@ function Login(props) {
   const handleInputChange = (e) => {
     setUserInfo({ ...userinfo, [e.target.name]: e.target.value });
   };
-
+//^ something need to be done handle the json web token for home page.
   const handleSubmit = async (e) => {
     console.log("hit");
     e.preventDefault();

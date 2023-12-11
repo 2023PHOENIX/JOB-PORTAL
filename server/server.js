@@ -7,7 +7,7 @@ const { connectToMongoDB } = require('./connection');
 
 const authRoute = require("./routes/auth");
 const errorMiddleWare = require('./middleware/errorMiddleware');
-
+const portalRoute = require("./routes/portal");
 
 dotenv.config();
 
@@ -22,7 +22,7 @@ app.use(bodyParser.json()); // * help in parsing json body request.
 
 // ^ Routes 
 app.use('/auth', authRoute);
-
+app.use('/portal',portalRoute );
 
 
 
