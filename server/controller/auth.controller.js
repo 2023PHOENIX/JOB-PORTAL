@@ -24,8 +24,8 @@ const loginUser = async (req, res, next) => {
                     process.env.jwtPrivateKey,
                     { expiresIn: "1d" },
                 );
-                console.log(token);
-                res.status(200).json({ token: token });
+                // console.log(token);
+                res.status(200).json({ token: token ,username : user.name});
             } else {
                 res.status(401).json({ message: "your password is incorrect" });
             }

@@ -1,13 +1,14 @@
 const express = require('express');
-const authenticateUser = require('../middleware/authenticateUser');
-const { jobFetcher,addNewJob } = require('../controller/portal.controller');
+const {authenticateUser,isUserAvailable} = require('../middleware/authenticateUser');
+const { jobFetcher,addNewJob,updateJob } = require('../controller/portal.controller');
 
 const router = express.Router();
 
 // home page 
-router.get("/", authenticateUser,jobFetcher);
+router.get("/", isUserAvailable,jobFetcher);
 
-router.post("/addJob",authenticateUser,addNewJob)
+router.post("/addJob", authenticateUser, addNewJob);
+router.put('/updateJobPost',authenticateUser,updateJob);
 
 
 module.exports = router;
