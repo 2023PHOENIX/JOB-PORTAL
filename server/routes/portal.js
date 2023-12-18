@@ -1,14 +1,24 @@
-const express = require('express');
-const {authenticateUser,isUserAvailable} = require('../middleware/authenticateUser');
-const { jobFetcher,addNewJob,updateJob } = require('../controller/portal.controller');
+const express = require("express");
+const {
+  authenticateUser,
+  isUserAvailable,
+} = require("../middleware/authenticateUser");
+const {
+  jobFetcher,
+  addNewJob,
+  updateJob,
+  filteredJobs,
+  fetchDataByID,
+} = require("../controller/portal.controller");
 
 const router = express.Router();
 
-// home page 
-router.get("/", isUserAvailable,jobFetcher);
+// home page
+router.get("/", isUserAvailable, jobFetcher);
 
 router.post("/addJob", authenticateUser, addNewJob);
-router.put('/updateJobPost',authenticateUser,updateJob);
-
+router.put("/updateJobPost", authenticateUser, updateJob);
+router.get("/filteredPost", filteredJobs);
+router.get("/fetchPost/:id", authenticateUser, fetchDataByID);
 
 module.exports = router;

@@ -4,17 +4,21 @@ import styles from "./auth.module.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Login(props) {
   const [userinfo, setUserInfo] = useState({
     email: "",
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const fetchMyUser = async () => {
     try {
+      console.log(userinfo);
       const response = await axios.post(
         "http://localhost:8001/auth/login",
-        userinfo
+        userinfo,
       );
       return response.data;
     } catch (e) {
@@ -34,12 +38,13 @@ function Login(props) {
   const handleInputChange = (e) => {
     setUserInfo({ ...userinfo, [e.target.name]: e.target.value });
   };
-//^ something need to be done handle the json web token for home page.
+  //^ something need to be done handle the json web token for home page.
   const handleSubmit = async (e) => {
     console.log("hit");
     e.preventDefault();
     const data = await fetchMyUser();
-    if (data.jwttoken) {
+    console.log(data);
+    if (data.token) {
       toast.success("Login successfully", {
         position: "top-right",
         autoClose: 5000,
@@ -50,8 +55,9 @@ function Login(props) {
         progress: undefined,
         theme: "dark",
       });
+      navigate("/");
     } else {
-      toast.error("something went wrong", {
+      toast.error("Json web token problem went wrong", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -61,8 +67,7 @@ function Login(props) {
         progress: undefined,
         theme: "dark",
       });
-      }
-      
+    }
 
     //   ! something need to be done here.
   };
@@ -94,12 +99,10 @@ function Login(props) {
         </div>
 
         <div className={styles.footer}>
-                  Don't have an account?  
-                  <Link to="/register">
-          
-                  <span>
-                        Sign Up</span>
-                  </Link>
+          Don't have an account?
+          <Link to="/register">
+            <span>Sign Up</span>
+          </Link>
         </div>
       </div>
 
