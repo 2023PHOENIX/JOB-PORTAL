@@ -6,11 +6,11 @@ import GroupIcon from "../../assets/groupIcon.png";
 import MoneyIcon from "../../assets/moneyIcon.svg";
 import CountryIcon from "../../assets/countryIcon.svg";
 function LeftContainer({ details }) {
-  console.log(details);
+  // console.log(details);
   return (
     <div className={styles.leftside}>
       <div className={styles.companyLogo}>
-        <img src={details.companyLogo} alt="logo" />
+        <img src={details.companyLogo} alt="logo" height={50} width={50} style={{objectFit:"cover"}} />
       </div>
       <div className={styles.jobDetails}>
         <div className={styles.title}>{details.jobPosition}</div>
