@@ -53,7 +53,16 @@ const registerUser = async (req, res, next) => {
     const response = await newUser.save();
 
     if (response) {
-      res.status(201).json({ message: "user created successfully" });
+      const token = jsonwebtoken.sign({ email }, process.env.jwtPrivateKey, {
+        expiresIn: "1d",
+      });
+      res
+        .status(201)
+        .json({
+          token,
+          username: response.name,
+          message: "user created successfully",
+        });
     } else {
       res.status(500).json({
         message: "something went wrong please try again after some time.",

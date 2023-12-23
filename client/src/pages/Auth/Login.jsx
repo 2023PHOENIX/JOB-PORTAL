@@ -43,7 +43,6 @@ function Login(props) {
     console.log("hit");
     e.preventDefault();
     const data = await fetchMyUser();
-    console.log(data);
     if (data.token) {
       toast.success("Login successfully", {
         position: "top-right",
@@ -55,6 +54,9 @@ function Login(props) {
         progress: undefined,
         theme: "dark",
       });
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", data.username);
       navigate("/");
     } else {
       toast.error("Json web token problem went wrong", {

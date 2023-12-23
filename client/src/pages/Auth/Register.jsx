@@ -5,7 +5,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 function Register(props) {
-
   const navigate = useNavigate();
   const [userinfo, setUserInfo] = useState({
     email: "",
@@ -17,7 +16,7 @@ function Register(props) {
     try {
       const response = await axios.post(
         "http://localhost:8001/auth/signup",
-        userinfo
+        userinfo,
       );
       return response.data;
     } catch (e) {
@@ -46,19 +45,24 @@ function Register(props) {
     console.log(userinfo);
     if (userinfo.terms) {
       const data = await createNewUser();
-
-      toast.success(data.message, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-      navigate('/login');
-      
+      if (data) {
+        toast.success(data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        console.log("data from signup", data);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", data.username);
+        navigate("/");
+      } else {
+        toast.warn("something went wrong");
+      }
     } else {
       toast.warn("please accept the T&C", {
         position: "top-right",

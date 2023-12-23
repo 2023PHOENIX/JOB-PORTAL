@@ -10,17 +10,24 @@ function JobHeader(props) {
     <div className={styles.wrapper}>
       <img src={ImgLeftBottom} className={styles.lbimg} />
       <img src={middleTop} className={styles.midT} />
-          <img src={Right} className={styles.R} />
-          
+      <img src={Right} className={styles.R} />
 
-          <div className={styles.navBar}>
-              <div className={styles.jobFinder}>JOB FINDER</div>
-              <div className={styles.auth}>
-                  <div className={`${styles.login} ${styles.centerElement}`}>Login</div>
-                  <div className={`${styles.register} ${styles.centerElement}`}>Register</div>
-              </div>
-
+      <div className={styles.navBar}>
+        <div className={styles.jobFinder}>JOB FINDER</div>
+        <div className={styles.auth}>
+          <div
+            className={`${styles.login} ${styles.centerElement}`}
+            onClick={() => {
+              console.log("hello");
+            }}
+          >
+            Login
           </div>
+          <div className={`${styles.register} ${styles.centerElement}`}>
+            Register
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

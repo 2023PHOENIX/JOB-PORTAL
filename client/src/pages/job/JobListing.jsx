@@ -1,33 +1,32 @@
-import axios from 'axios';
-import React, { useEffect } from 'react';
-import JobHeader from '../../components/job.header/JobHeader';
-import JobCard from '../../components/jobCard/JobCard';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import JobHeader from "../../components/job.header/JobHeader";
+import JobCard from "../../components/jobCard/JobCard";
 
 function JobListing(props) {
+  const [jobs, setJobs] = useState(null);
+  const fetchJobPosts = async () => {
+    const response = await axios.get("http://localhost:8001/portal");
 
-    const fetchJobPosts = async () => {
-        const response = await axios.get('http://localhost:8001/portal');
-        console.log(response.data);
-        return response.data;
-    }
+    setJobs(response.data);
 
-    // useEffect(() => {
-    //     fetchJobPosts();
-    // }, []);
-    return (
-        <div>
-            <JobHeader />
-            <div style={{ paddingTop: "20px" }}>
+    // console.log(response.data);
+  };
 
-            <JobCard/>
-            <JobCard/>
-            <JobCard/>
-            <JobCard/>
-            <JobCard/>
-            <JobCard/>
-            </div>
-        </div>
-    );
+  useEffect(() => {
+    fetchJobPosts();
+  }, []);
+  return (
+    <div>
+      <JobHeader />
+      <div style={{ paddingTop: "20px" }}>
+        {jobs &&
+          jobs.map((j, i) => {
+            return <JobCard details={j} key={i} />;
+          })}
+      </div>
+    </div>
+  );
 }
 
 export default JobListing;

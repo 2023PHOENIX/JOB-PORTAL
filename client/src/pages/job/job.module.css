@@ -1,0 +1,143 @@
+.addJobWrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.jobForm {
+  width: 60%;
+  margin-left: 50px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.jobForm h1 {
+  color: #000;
+  font-family: DM Sans;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.image {
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+}
+.gridJob {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, 0.55fr);
+  position: relative;
+}
+
+.jobEntry {
+  display: flex;
+  /* background-color: blue; */
+  /* gap: 40px; */
+  flex-wrap: wrap;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.jobEntry div {
+  color: #000;
+  font-family: DM Sans;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.jobEntry input {
+  width: 380.233px;
+  height: 30.668px;
+  flex-shrink: 0;
+  border-radius: 4.603px;
+  border: 1.841px solid #c2c2c2;
+  background: #fff;
+  margin-left: auto;
+  margin-right: 80px;
+
+  color: #adadad;
+  font-family: DM Sans;
+  font-size: 15.651px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+.jobEntry select {
+  width: 136.257px;
+  height: 38.668px;
+  flex-shrink: 0;
+  background-color: yellow;
+  margin-left: auto;
+  margin-right: 322px;
+  border-radius: 4.603px;
+  border: 1.841px solid #c2c2c2;
+  background: #fff;
+  display: flex;
+  color: #adadad;
+  font-family: DM Sans;
+  font-size: 15.651px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  align-items: center;
+}
+
+select option {
+  /* width: 438.233px !important; */
+  /* height: 38.668px !important; */
+  margin-left: auto;
+  color: #adadad;
+  font-family: DM Sans;
+  font-size: 15.651px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  /* background-color: green; */
+}
+
+.textArea input {
+  width: 380.233px !important;
+  height: 60.828px !important;
+
+  flex-shrink: 0;
+}
+
+button {
+  width: 146.788px;
+  height: 36.663px;
+  flex-shrink: 0;
+}
+
+.addJob {
+  border-radius: 6.508px;
+  background: #ed5353;
+}
+
+.cancle {
+  border-radius: 6.508px;
+  border: 0.848px solid #cecece;
+  background: #fff;
+  color: #c2c2c2;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  right: 20px;
+  bottom: -50px;
+}
+
+.jobEntry input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  padding-left: 20px;
+}
