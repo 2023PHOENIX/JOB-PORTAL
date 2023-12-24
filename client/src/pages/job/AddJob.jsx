@@ -3,6 +3,8 @@ import img from "./../../assets/addjobpic.png";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+
+// TODO: add scroll feature in your input form. 
 const AddJob = () => {
   const [jobData, setJobData] = useState({
     companyName: "",
