@@ -120,6 +120,7 @@ button {
 .addJob {
   border-radius: 6.508px;
   background: #ed5353;
+  color : white;
 }
 
 .cancle {

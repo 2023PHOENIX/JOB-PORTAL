@@ -1,85 +1,106 @@
-.wrapper {
-  font-size: 24px;
-  border-radius: 0px 0px 62px 55px;
-  background: #ed5353;
-  width: 100%;
+.headerWrapper {
+  width: 100vw;
   height: 139px;
   flex-shrink: 0;
+  border-radius: 0px 0px 62px 55px;
+  background: #ED5353;
   position: relative;
-  z-index: -1;
-}
 
-.lbimg {
-  position: absolute;
-  bottom: 0px;
-  z-index: -1;
-}
-
-.midT {
-  position: absolute;
-  right: 40%;
-  z-index: -2;
-}
-
-.R {
-  position: absolute;
-  right: 5%;
-  z-index: -2;
-}
-
-.navBar {
   display: flex;
-  align-items: center;
+  margin: auto;
   justify-content: space-between;
-  z-index: 2;
-  /* background-color:    green; */
-  height: 100%;
-  margin: 0 50px;
+  align-items: center;
+
 }
 
-.auth {
+.leftImg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.middleImg {
+  position: absolute;
+  left: 30%;
+  top : 0;
+}
+
+.rightImg {
+  position: absolute;
+  right: 7%;
+
+}
+
+.leftSide {
+  margin-left: 100px;
+  color: #FFF;
+  text-align: center;
+  font-family: DM Sans;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 144.023%;
+  /* 43.207px */
+}
+
+
+.rightSide {
+  z-index: 4;
+  margin-right: 100px;
   display: flex;
-  margin: 0 40px;
-  gap: 40px;
-  z-index: 5;
+  gap :40px;
+}
+
+button {
+  width: 113px;
+  height: 46px;
+  flex-shrink: 0;
+  color: #ED5353;
+    text-align: center;
+    font-family: DM Sans;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 144.023%;
+    /* 33.125px */
 }
 
 .login {
   border-radius: 7px;
-  border: 2px solid #fff;
-  background: #ff6b6b;
-  width: 113px;
-  height: 46px;
-  flex-shrink: 0;
-
-  color: #fff;
-  text-align: center;
-  font-family: DM Sans;
-  font-size: 23px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 144.023%;
-  /* 33.125px */
+  border: 2px solid #FFF;
+  background: #FF6B6B;
+  color: #FFF;
+  
+    text-align: center;
+    font-family: DM Sans;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 144.023%;
 }
 
 .register {
-  width: 113px;
-  height: 46px;
-  flex-shrink: 0;
   border-radius: 7px;
-  background: #fff;
-  color: #ed5353;
-  text-align: center;
-  font-family: DM Sans;
-  font-size: 23px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 144.023%;
-  /* 33.125px */
+  background: #FFF;
+  border : none;
 }
 
-.centerElement {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.user{
+  color: #FFF;
+text-align: center;
+font-family: DM Sans;
+font-size: 23px;
+font-style: normal;
+font-weight: 500;
+line-height: 144.023%; /* 33.125px */
+
+display: flex;
+align-items: center;
+gap : 20px;
+justify-content: center;
+}
+.user img {
+  height : 40px;
+  width : 40px; 
+  
 }

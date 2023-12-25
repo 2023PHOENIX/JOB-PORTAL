@@ -81,7 +81,7 @@ const filteredJobs = async (req, res, next) => {
     console.log(data);
 
     const response = await Job.find({ skills: { $in: data.skills } });
-    console.log(response);
+    // console.log(response);
     res.send({ data: response, message: "ok" });
   } catch (e) {
     next(e);
@@ -89,6 +89,7 @@ const filteredJobs = async (req, res, next) => {
 };
 
 const fetchDataByID = async (req, res, next) => {
+  console.log("fetcching by ID");
   try {
     const id = req.params;
     const _id = new mongoose.Types.ObjectId(id);

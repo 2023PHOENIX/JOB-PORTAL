@@ -29,7 +29,7 @@ function JobListing(props) {
   };
   useEffect(() => {
     console.log(jobListKey);
-    if (jobListKey.length === 0) {
+    if (jobListKey?.length === 0) {
       
       fetchJobPosts();
       return;

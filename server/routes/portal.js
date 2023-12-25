@@ -18,7 +18,7 @@ router.get("/", isUserAvailable, jobFetcher);
 
 router.post("/addJob", authenticateUser, addNewJob);
 router.put("/updateJobPost", authenticateUser, updateJob);
-router.get("/filteredPost", filteredJobs);
+router.post("/filteredPost", filteredJobs);
 router.get("/fetchPost/:id", authenticateUser, fetchDataByID);
 
 module.exports = router;

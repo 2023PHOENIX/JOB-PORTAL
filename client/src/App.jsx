@@ -8,6 +8,7 @@ import AddJob from "./pages/job/AddJob";
 import JobListing from "./pages/job/JobListing";
 import ShowJob from "./pages/job/ShowJob";
 import SearchJobProvider from "./context/SearchJobProvider";
+import EditJob from "./pages/job/EditJob";
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/addJob" element={<AddJob />} />
             <Route path="/showJob" element={<ShowJob />} />
+            <Route path='/editJob' element={<EditJob />}/>
             <Route path="/" element={<JobListing />} />
           </Routes>
         </BrowserRouter>

@@ -8,6 +8,10 @@ function RightContainer({ details }) {
     console.log(details._id)
     navigate("/showJob", { state: { id: details._id } }); 
   };
+
+  const handleEditJob = () => {
+    navigate("/editJob", { state: { id: details._id } });
+  }
   return (
     <div className={styles.rightside}>
       <div className={styles.skills}>
@@ -18,7 +22,9 @@ function RightContainer({ details }) {
         ))}
       </div>
       <div className={styles.manipulation}>
-        <div className={`${styles.edit} ${styles.button}`}>Edit job</div>
+        {localStorage.getItem("user") && <div className={`${styles.edit} ${styles.button}`
+
+        } onClick={handleEditJob}>Edit job</div>}
         <div
           className={`${styles.viewDetails} ${styles.button}`}
           onClick={handleViewDetails}
