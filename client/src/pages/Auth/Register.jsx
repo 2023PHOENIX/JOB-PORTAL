@@ -15,7 +15,7 @@ function Register(props) {
   const createNewUser = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8001/auth/signup",
+        "https://job-portal-g8u7.onrender.com/auth/signup",
         userinfo,
       );
       return response.data;

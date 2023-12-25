@@ -17,8 +17,8 @@ function Login(props) {
     try {
       console.log(userinfo);
       const response = await axios.post(
-        "http://localhost:8001/auth/login",
-        userinfo,
+        "https://job-portal-g8u7.onrender.com/auth/login",
+        userinfo
       );
       return response.data;
     } catch (e) {

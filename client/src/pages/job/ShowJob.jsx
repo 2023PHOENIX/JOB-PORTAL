@@ -17,7 +17,7 @@ function ShowJob(props) {
 
     try {
       
-      const url = "http://localhost:8001/portal/fetchPost/" + id;
+      const url = "https://job-portal-g8u7.onrender.com/portal/fetchPost/" + id;
       const token = localStorage.getItem("token");
       const response = await axios.get(url, {
         headers: {

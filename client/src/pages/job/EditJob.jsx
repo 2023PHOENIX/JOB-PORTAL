@@ -24,7 +24,9 @@ const EditJob = () => {
 
   const fetchDetailsForPost = async () => {
     try {
-      const url = "http://localhost:8001/portal/fetchPost/" + location.state.id;
+      const url =
+        "https://job-portal-g8u7.onrender.com/portal/fetchPost/" +
+        location.state.id;
       const response = await axios.get(url, {
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +68,7 @@ const EditJob = () => {
         updates: jobData,
       };
       const response = await axios.put(
-        "http://localhost:8001/portal/updateJobPost",
+        "https://job-portal-g8u7.onrender.com/portal/updateJobPost",
         details,
         {
           headers: {

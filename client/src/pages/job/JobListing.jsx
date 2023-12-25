@@ -14,7 +14,7 @@ function JobListing(props) {
     try {
       
       const response = await axios.post(
-        "http://localhost:8001/portal/filteredPost/",
+        "https://job-portal-g8u7.onrender.com/portal/filteredPost/",
         {
           skills: jobListKey,
         }
@@ -38,7 +38,9 @@ function JobListing(props) {
   },[jobListKey]);
 
   const fetchJobPosts = async () => {
-    const response = await axios.get("http://localhost:8001/portal");
+    const response = await axios.get(
+      "https://job-portal-g8u7.onrender.com/portal"
+    );
 
     setJobs(response.data);
   };
